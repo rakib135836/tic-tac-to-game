@@ -1,26 +1,26 @@
 // this is the board in documentation
-import { useState } from "react"
+// import { useState } from "react"
 import Square from "./Square"
 
-const App=()=> {
+const App=({xIsNext, squares, onPlay})=> {
 
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [xIsNext, setXIsNext] = useState(true);
+  // const [squares, setSquares] = useState(Array(9).fill(null));
+  // const [xIsNext, setXIsNext] = useState(true);
 
   const handleClick = (i) => {
-    if (squares[i] || calculateWinner(squares)) {
-      return
+    if (calculateWinner(squares) || squares[i]) {
+      return;
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = 'x';
-
+      nextSquares[i] = 'X';
+    } else {
+      nextSquares[i] = 'O';
     }
-    else {
-      nextSquares[i] = 'o';
-    }
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
+    // setSquares(nextSquares);
+    // setXIsNext(!xIsNext);
+   
   }
 
   const calculateWinner = (squares) => {
