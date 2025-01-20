@@ -33,7 +33,7 @@ function Game() {
             <li key={move}>
                 <button
                     onClick={() => jumpTo(move)}
-                    className="px-4 py-0.5 text-[#85d8c9] text-white rounded hover:bg-gray-300"
+                    className="px-4 py-0.5 text-[#85d8c9]  rounded hover:bg-gray-900"
                 >
                     {description}
                 </button>
@@ -61,7 +61,7 @@ function Game() {
             <div className="text-white">
                 <ol className="list-none flex flex-row gap-2 ">{moves}</ol>
             </div>
-
+            
             <button onClick={handleReload} className="text-black bg-red-500 my-5 py-5 rounded-md px-6">restart</button>
         </div>
         </div>
